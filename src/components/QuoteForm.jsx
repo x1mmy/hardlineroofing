@@ -125,7 +125,7 @@ export default function QuoteForm() {
                 { icon: '📞', text: '0450 501 000', href: 'tel:0450501000' },
                 { icon: '📧', text: 'roofing@hardlineconstructionaustralia.com', href: 'mailto:roofing@hardlineconstructionaustralia.com' },
                 { icon: '📍', text: 'Sydney, NSW — All Suburbs' },
-                { icon: '📸', text: '@thebeardedathlete_ on Instagram', href: 'https://www.instagram.com/thebeardedathlete_/' },
+                { icon: '📸', text: '@hardlineroofingptyltd on Instagram', href: 'https://www.instagram.com/hardlineroofingptyltd/' },
               ].map(({ icon, text, href }) => (
                 <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '13px 0', borderBottom: '1px solid rgba(255,255,255,.07)' }}>
                   <div style={{ width: 30, height: 30, border: '1px solid rgba(200,51,42,.3)', background: 'rgba(200,51,42,.08)', display: 'grid', placeItems: 'center', fontSize: '.8rem', flexShrink: 0 }}>{icon}</div>

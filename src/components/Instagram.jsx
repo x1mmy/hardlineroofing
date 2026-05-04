@@ -1,6 +1,8 @@
 import { useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 
+const IG_URL = 'https://www.instagram.com/hardlineroofingptyltd/'
+
 export default function Instagram() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
@@ -31,7 +33,7 @@ export default function Instagram() {
               See projects as they happen — before and afters, in-progress shots, and real results from across Sydney and beyond.
             </p>
             <a
-              href="https://www.instagram.com/thebeardedathlete_/"
+              href={IG_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -47,7 +49,7 @@ export default function Instagram() {
                 <circle cx="12" cy="12" r="5"/>
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
               </svg>
-              @thebeardedathlete_
+              @hardlineroofingptyltd
             </a>
           </motion.div>
 

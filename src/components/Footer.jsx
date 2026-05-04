@@ -41,7 +41,7 @@ export default function Footer() {
               {[
                 { label: '📞 0450 501 000', href: 'tel:0450501000' },
                 { label: '📧 Email Us', href: 'mailto:roofing@hardlineconstructionaustralia.com' },
-                { label: '📸 Instagram', href: 'https://www.instagram.com/thebeardedathlete_/' },
+                { label: '📸 Instagram', href: 'https://www.instagram.com/hardlineroofingptyltd/' },
                 { label: 'Get a Free Quote →', href: '#quote' },
               ].map(({ label, href }) => (
                 <li key={label}><a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{ fontSize: '.84rem', color: '#3E3A36', textDecoration: 'none', transition: 'color .2s' }}
