@@ -30,16 +30,17 @@ export default function Nav() {
     <>
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
-        height: 64, padding: '0 clamp(20px,5vw,60px)',
+        height: 64, padding: '0 clamp(16px,4vw,60px)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        maxWidth: '100%', minWidth: 0,
         background: scrolled ? 'rgba(16,14,12,.97)' : 'rgba(16,14,12,.85)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(255,255,255,.06)',
         transition: 'background .4s',
       }}>
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', minWidth: 0, flexShrink: 1 }}>
           <Logo />
-          <div style={{ fontFamily: 'var(--f-d)', fontWeight: 700, fontSize: '1.05rem', letterSpacing: '.04em', textTransform: 'uppercase', color: 'var(--white)', lineHeight: 1.1 }}>
+          <div style={{ fontFamily: 'var(--f-d)', fontWeight: 700, fontSize: 'clamp(.82rem, 3.2vw, 1.05rem)', letterSpacing: '.04em', textTransform: 'uppercase', color: 'var(--white)', lineHeight: 1.1 }}>
             HARDLINE<br /><span style={{ color: 'var(--ember)' }}>ROOFING</span>
           </div>
         </a>
@@ -78,7 +79,7 @@ export default function Nav() {
         <button
           onClick={() => setOpen(!open)}
           aria-label="Menu"
-          style={{ display: 'none', flexDirection: 'column', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+          style={{ display: 'none', flexDirection: 'column', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 4, flexShrink: 0 }}
           className="nav-burger"
         >
           <motion.span animate={open ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }} style={{ display: 'block', width: 22, height: 1.5, background: 'var(--chalk)', originX: 0.5 }} />

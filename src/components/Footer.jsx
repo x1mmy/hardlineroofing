@@ -12,7 +12,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr', gap: 'clamp(32px,5vw,72px)', paddingBottom: 'clamp(32px,4vw,52px)', borderBottom: '1px solid rgba(255,255,255,.06)', marginBottom: 24 }}
+          style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr', gap: 'clamp(32px,5vw,72px)', paddingBottom: 'clamp(32px,4vw,52px)', borderBottom: '1px solid rgba(255,255,255,.06)', marginBottom: 24, minWidth: 0 }}
           className="ft-grid"
         >
           <div>

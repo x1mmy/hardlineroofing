@@ -29,10 +29,11 @@ function ServiceRow({ s, index }) {
         borderBottom: '1px solid rgba(255,255,255,.07)',
         position: 'relative',
         cursor: 'default',
+        minWidth: 0,
       }}
     >
       <span style={{ fontFamily: 'var(--f-d)', fontSize: '.65rem', fontWeight: 400, letterSpacing: '.1em', color: 'var(--steel)' }}>{s.n}</span>
-      <div>
+      <div style={{ minWidth: 0 }}>
         <div className="svc-nm" style={{
           fontFamily: 'var(--f-d)', fontWeight: 700,
           fontSize: 'clamp(1.1rem,2.8vw,1.9rem)', textTransform: 'uppercase',
@@ -45,7 +46,7 @@ function ServiceRow({ s, index }) {
       <style>{`
         .svc-row:hover .svc-nm{color:var(--white)!important}
         .svc-row:hover .svc-ar{transform:translateX(5px);color:var(--ember)!important}
-        .svc-row::before{content:'';position:absolute;left:calc(-1 * clamp(20px,4vw,54px));right:calc(-1 * clamp(20px,4vw,54px));top:0;bottom:0;background:rgba(200,51,42,.04);opacity:0;transition:opacity .25s;pointer-events:none}
+        .svc-row::before{content:'';position:absolute;inset:0;background:rgba(200,51,42,.04);opacity:0;transition:opacity .25s;pointer-events:none}
         .svc-row:hover::before{opacity:1}
         @media(max-width:640px){.svc-row{grid-template-columns:44px 1fr 22px!important;gap:10px!important}}
       `}</style>

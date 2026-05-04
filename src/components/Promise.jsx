@@ -15,7 +15,7 @@ export default function Promise() {
   return (
     <section id="promise" ref={ref} style={{ background: 'var(--ember)', padding: 'clamp(56px,8vw,100px) 0' }}>
       <div className="wrap">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,96px)', alignItems: 'center' }} className="prom-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,96px)', alignItems: 'center', minWidth: 0 }} className="prom-grid">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

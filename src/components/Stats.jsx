@@ -41,7 +41,7 @@ export default function Stats() {
       padding: '28px 0',
     }}>
       <div className="wrap">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'clamp(16px,3vw,40px)' }} className="stats-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'clamp(16px,3vw,40px)', minWidth: 0 }} className="stats-grid">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}

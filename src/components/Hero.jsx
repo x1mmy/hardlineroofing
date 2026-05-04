@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const ArrowRight = () => (
@@ -70,8 +70,11 @@ export default function Hero() {
         className="hero-inner"
         style={{
           position: 'relative', zIndex: 2,
-          width: '92%', maxWidth: 1300,
+          width: '100%', maxWidth: 1300,
           marginInline: 'auto',
+          paddingInline: 'clamp(16px, 4vw, 32px)',
+          boxSizing: 'border-box',
+          minWidth: 0,
           paddingBottom: 'clamp(56px,9vh,110px)',
           paddingTop: 'clamp(48px,8vh,72px)',
           display: 'grid',
@@ -81,7 +84,7 @@ export default function Hero() {
           opacity,
         }}
       >
-        <motion.div variants={container} initial="hidden" animate="show" style={{ maxWidth: 740 }}>
+        <motion.div variants={container} initial="hidden" animate="show" style={{ maxWidth: 740, minWidth: 0 }}>
           {/* Eye badge */}
           <motion.div variants={item} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 26 }}>
             <motion.div
@@ -96,10 +99,10 @@ export default function Hero() {
 
           {/* Big headline */}
           <motion.h1 variants={item} style={{ fontFamily: 'var(--f-d)', fontWeight: 700, textTransform: 'uppercase', lineHeight: 0.86, userSelect: 'none', marginBottom: 36 }}>
-            <span style={{ fontSize: 'clamp(5.5rem,13.5vw,12rem)', color: 'var(--white)', display: 'block', letterSpacing: '-.015em' }}>HARD</span>
+            <span style={{ fontSize: 'clamp(2.65rem, calc(0.5rem + 12vw), 12rem)', color: 'var(--white)', display: 'block', letterSpacing: '-.015em' }}>HARD</span>
             <motion.span
               style={{
-                fontSize: 'clamp(5.5rem,13.5vw,12rem)',
+                fontSize: 'clamp(2.65rem, calc(0.5rem + 12vw), 12rem)',
                 WebkitTextStroke: '2px var(--ember)',
                 color: 'transparent',
                 display: 'block',
@@ -109,7 +112,7 @@ export default function Hero() {
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >LINE</motion.span>
             <span style={{
-              fontSize: 'clamp(1.8rem,3.8vw,3.4rem)',
+              fontSize: 'clamp(1.15rem, calc(0.35rem + 3.2vw), 3.4rem)',
               color: 'var(--steel)', fontWeight: 300,
               letterSpacing: '.26em', display: 'block',
               marginTop: 14, borderTop: '1px solid rgba(255,255,255,.09)', paddingTop: 16,
@@ -163,7 +166,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.6, duration: 0.7 }}
-          style={{ display: 'flex', flexDirection: 'column', gap: 22, paddingBottom: 6, minWidth: 190, alignSelf: 'end' }}
+          style={{ display: 'flex', flexDirection: 'column', gap: 22, paddingBottom: 6, minWidth: 0, maxWidth: 240, alignSelf: 'end' }}
           className="hero-aside"
         >
           {[
@@ -198,7 +201,7 @@ export default function Hero() {
       <style>{`
         @media(max-width:980px){
           .hero-inner{grid-template-columns:1fr!important}
-          .hero-aside{flex-direction:row!important;gap:28px!important}
+          .hero-aside{flex-direction:row!important;flex-wrap:wrap!important;gap:28px!important;max-width:100%!important}
         }
         @media(max-width:640px){
           .hero-aside{flex-direction:column!important;gap:12px!important}

@@ -115,22 +115,24 @@ export default function Projects() {
 
       <div
         ref={scrollRef}
+        className="pscroll"
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         style={{
           overflowX: 'auto', WebkitOverflowScrolling: 'touch',
           scrollbarWidth: 'none', marginBottom: 'clamp(60px,8vw,110px)',
           cursor: 'grab', paddingBottom: 4,
+          width: '100%', maxWidth: '100%',
         }}
       >
         <div style={{
           display: 'flex', gap: 2, width: 'max-content',
-          paddingLeft: 'clamp(20px,4vw,54px)', paddingRight: 'clamp(20px,4vw,54px)',
+          paddingLeft: 'clamp(16px,4vw,32px)', paddingRight: 'clamp(16px,4vw,32px)',
         }}>
           {projects.map((p, i) => <ProjectCard key={p.n} p={p} index={i} />)}
         </div>
-        <style>{`.pscroll::-webkit-scrollbar{display:none}`}</style>
       </div>
+      <style>{`.pscroll::-webkit-scrollbar{display:none}`}</style>
     </section>
   )
 }

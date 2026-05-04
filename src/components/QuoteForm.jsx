@@ -14,6 +14,7 @@ function Radio({ name, value, options, onChange }) {
       {options.map(opt => (
         <label key={opt} style={{
           display: 'flex', alignItems: 'center', gap: 11,
+          minWidth: 0,
           padding: '10px 13px',
           background: value === opt ? 'rgba(200,51,42,.07)' : 'rgba(255,255,255,.03)',
           border: `1px solid ${value === opt ? 'rgba(200,51,42,.35)' : 'rgba(255,255,255,.07)'}`,
@@ -34,7 +35,7 @@ function Radio({ name, value, options, onChange }) {
               flexShrink: 0, cursor: 'pointer', transition: 'all .2s',
             }}
           />
-          <span style={{ fontSize: '.86rem', color: value === opt ? 'var(--chalk)' : '#aaa' }}>{opt}</span>
+          <span style={{ fontSize: '.86rem', color: value === opt ? 'var(--chalk)' : '#aaa', minWidth: 0, overflowWrap: 'anywhere' }}>{opt}</span>
         </label>
       ))}
     </div>
@@ -104,11 +105,12 @@ export default function QuoteForm() {
   return (
     <section id="quote" ref={ref} style={{ background: 'var(--soot)' }}>
       <div className="wrap">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'clamp(40px,6vw,96px)', alignItems: 'start' }} className="q-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'clamp(40px,6vw,96px)', alignItems: 'start', minWidth: 0 }} className="q-grid">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
+            style={{ minWidth: 0 }}
           >
             <div style={{ fontFamily: 'var(--f-d)', fontSize: '.65rem', fontWeight: 500, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--ember)', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
               <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ember)' }} />
@@ -145,7 +147,7 @@ export default function QuoteForm() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
-            style={{ background: 'var(--charcoal)', borderTop: '3px solid var(--ember)', padding: 'clamp(24px,4vw,44px)' }}
+            style={{ background: 'var(--charcoal)', borderTop: '3px solid var(--ember)', padding: 'clamp(24px,4vw,44px)', minWidth: 0 }}
           >
             {/* Progress bar */}
             {!done && (
@@ -237,7 +239,7 @@ export default function QuoteForm() {
                     </>
                   )}
 
-                  <div style={{ display: 'flex', gap: 9, marginTop: 24 }}>
+                  <div style={{ display: 'flex', gap: 9, marginTop: 24, flexWrap: 'wrap' }}>
                     {step > 1 && (
                       <button onClick={back} style={btnStyle(false)}
                         onMouseEnter={e => { e.currentTarget.style.color = 'var(--chalk)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,.25)'; }}

@@ -16,8 +16,9 @@ export default function Instagram() {
   return (
     <section id="instagram" ref={ref} style={{ background: 'var(--soot)', borderTop: '1px solid rgba(255,255,255,.06)' }}>
       <div className="wrap">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,96px)', alignItems: 'center' }} className="ig-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,96px)', alignItems: 'center', minWidth: 0 }} className="ig-grid">
           <motion.div
+            style={{ minWidth: 0 }}
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, ease: [0.25,0,0,1] }}
@@ -57,28 +58,32 @@ export default function Instagram() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.15, ease: [0.25,0,0,1] }}
-            style={{ display: 'flex', justifyContent: 'center' }}
+            style={{ display: 'flex', justifyContent: 'center', minWidth: 0, width: '100%' }}
           >
-            <blockquote
-              className="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/reel/DWdMsccE5F0/?utm_source=ig_embed&utm_campaign=loading"
-              data-instgrm-version="14"
-              style={{
-                background: '#FFF', border: 0, borderRadius: 3,
-                boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
-                margin: 1, maxWidth: 460, minWidth: 0, padding: 0,
-                width: '100%',
-              }}
-            >
-              <div style={{ padding: 16 }}>
-                <a href="https://www.instagram.com/reel/DWdMsccE5F0/?utm_source=ig_embed&utm_campaign=loading" target="_blank" rel="noopener noreferrer" style={{ color: '#3897f0', fontFamily: 'Arial,sans-serif', fontSize: 14, lineHeight: '18px', textDecoration: 'none' }}>View this post on Instagram</a>
-              </div>
-            </blockquote>
-            <script async src="//www.instagram.com/embed.js" />
+            <div className="ig-embed-wrap">
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DWdMsccE5F0/?utm_source=ig_embed&utm_campaign=loading"
+                data-instgrm-version="14"
+                style={{
+                  background: '#FFF', border: 0, borderRadius: 3,
+                  boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
+                  margin: 1, maxWidth: 460, minWidth: 0, padding: 0,
+                  width: '100%',
+                }}
+              >
+                <div style={{ padding: 16 }}>
+                  <a href="https://www.instagram.com/reel/DWdMsccE5F0/?utm_source=ig_embed&utm_campaign=loading" target="_blank" rel="noopener noreferrer" style={{ color: '#3897f0', fontFamily: 'Arial,sans-serif', fontSize: 14, lineHeight: '18px', textDecoration: 'none' }}>View this post on Instagram</a>
+                </div>
+              </blockquote>
+              <script async src="//www.instagram.com/embed.js" />
+            </div>
           </motion.div>
         </div>
       </div>
       <style>{`
+        .ig-embed-wrap{width:100%;max-width:min(460px,100%);overflow:hidden}
+        .ig-embed-wrap iframe{max-width:100%!important;width:100%!important}
         @media(max-width:980px){ .ig-grid{grid-template-columns:1fr!important} }
       `}</style>
     </section>
